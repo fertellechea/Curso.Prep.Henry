@@ -20,8 +20,8 @@ function mayoriaDeEdad(edad) {
   //Si es menor, devolver --> "Not allowed"
   if (edad>=18) {
     return 'Allowed';
-  }
-  return 'Not Allowed';
+  } else {return 'Not allowed';
+    }
 } 
 
 function conection(status) {
@@ -49,12 +49,12 @@ function saludo(idioma) {
   // Tu código:
   if (idioma=='aleman') {
     return "Guten Tag!";
-  }
-  if (idioma=='mandarin') {
+  } else if (idioma=='mandarin') {
     return "Ni Hao!";
-  }
-  if (idioma=='ingles') {
+  } else if (idioma=='ingles') {
     return "Hello!";
+  } else {
+    return 'Hola!';
   }
 }
 
@@ -68,15 +68,14 @@ function colors(color) {
   //Usar el statement Switch.
   if (color=='blue') {
     return 'This is blue';
-  }
-  if (color=='red') {
+  } else if (color=='red') {
     return 'This is red';
-  }
-  if (color=='green') {
+  }else if (color=='green') {
     return 'This is green';
-  }
-  if (color=='orange') {
+  }else if (color=='orange') {
     return 'This is orange';
+  } else {
+    return 'Color not found';
   }
 }
 
@@ -107,9 +106,10 @@ function esEntero(numero) {
   // De lo contrario, devuelve "false"
   // Pista: Puedes resolver esto usando `Math.floor`
   // Tu código:
-  if ((numero/(Math.floor(numero)))==1) {
+  if (numero%1===0) {
     return true;
-  } else return false;
+  } else 
+    return false;
 }
 
 function fizzBuzz(numero) {
@@ -136,18 +136,22 @@ function operadoresLogicos(num1, num2, num3) {
   //0 no es ni positivo ni negativo. Si alguno de los argumentos es 0, retornar "Error".
   //Si no se cumplen ninguna de las condiciones anteriores, retornar false. 
   if (num1>num2 && num1>num3 && Math.sign(num1)==1 && Math.sign(num2)==1 && Math.sign(num3)==1 && num1!==0 && num2!==0 && num3!==0) {
-    return 'Numero 1 es mayor y positivo'; 
+    return 'Número 1 es mayor y positivo'; 
   }
-  if (num3>num2 && num3>num1 && Math.sign(num1)==1 && Math.sign(num2)==1 && Math.sign(num3)==1 && num1!==0 && num2!==0 && num3!==0) {
+  if (num1<0 || num2<0 || num3<0) {
+    return 'Hay negativos';
+  }
+  else if (num1===0 || num2===0 || num3===0) {
+    return 'Error';
+  }
+  else if (num1>0 && num1>num2 && num1>num3) {
+    return 'Número 1 es mayor y positivo';
+  }
+  else if (num3>num1 && num3>num2) {
     num3++;
     return num3;
   }
-  if (Math.sign(num1)==-1 || Math.sign(num2)==-1 || Math.sign(num3)==-1) {
-    return 'Hay negativos';
-  }
-  if (Math.sign(num1)==0 || Math.sign(num2)==0 || Math.sign(num3)==0) {
-    return 'Error';
-  }else return 'false';
+  else return false;
 }
 
 function esPrimo(numero) {
@@ -189,7 +193,7 @@ function tablaDelSeis(){
   //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
   //Escribe tu código aquí   
   let matriz=[];
-  for (let i=1; i<=10; i++) {
+  for (let i=0; i<=10; i++) {
     Resultado=6*i;
     matriz.push(Resultado);
   }
